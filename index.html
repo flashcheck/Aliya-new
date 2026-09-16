@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nisha Book Publication | Work From Home</title>
+    <title>Nisha Book Publication | Official Portal</title>
     
     <!-- Meta Pixel Code -->
     <script>
@@ -36,13 +36,12 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6366f1', 
-                        rose: '#fdf2f2',   
-                        roseDark: '#fbcfe8',
-                        accent: '#ec4899',
+                        primary: '#1e3a8a', /* Deep Corporate Blue */
+                        secondary: '#3b82f6',
+                        accent: '#10b981', /* Trust Green */
                         telegram: '#0088cc',
                         surface: '#ffffff',
-                        background: '#fcfcfd',
+                        background: '#f8fafc',
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
@@ -54,90 +53,65 @@
     </script>
     
     <style>
-        /* Base Animations & Utilities */
-        @keyframes scrollUp { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
-        .animate-scroll { animation: scrollUp 85s linear infinite; }
-        
-        @keyframes pulse-tg {
-            0% { box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 136, 204, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 136, 204, 0); }
-        }
-        .btn-pulse { animation: pulse-tg 2s infinite; }
-
-        html, body { height: 100%; user-select: none; scroll-behavior: smooth; }
+        /* Base Utilities */
+        html, body { height: 100%; scroll-behavior: smooth; }
         
         body::before {
             content: ""; position: fixed; inset: 0;
             background-image: url("image/mannubhai.png");
             background-repeat: no-repeat; background-position: center;
-            background-size: 25% auto; z-index: -2;
+            background-size: 25% auto; z-index: -2; opacity: 0.4;
         }
         @media (max-width: 450px) { body::before { background-size: 80% auto; } }
+        body::after { content: ""; position: fixed; inset: 0; background-color: rgba(255, 255, 255, 0.92); z-index: -1; }
         
-        body::after { content: ""; position: fixed; inset: 0; background-color: rgba(255, 255, 255, 0.85); z-index: -1; }
-        
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease-out; }
+        /* Smooth Reveal Animation */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
-        .m3-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 10px 40px rgba(99, 102, 241, 0.05); }
-        .step-blob { border-radius: 40% 60% 70% 30% / 40% 40% 60% 60%; }
+        /* Glassmorphism Navigation & Cards */
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); }
         
-        /* Progress Bar */
-        #progressBar { transition: width 0.1s ease; }
-
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 10px; }
 
-        /* Social Proof Toast */
-        .toast-enter { transform: translateY(150%); opacity: 0; }
-        .toast-active { transform: translateY(0); opacity: 1; }
+        /* Infinite Scroll Reviews */
+        @keyframes scrollUp { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+        .animate-scroll { animation: scrollUp 60s linear infinite; }
+        .animate-scroll:hover { animation-play-state: paused; }
 
-        /* Bar Chart */
-        .bar-chart-container { display: flex; align-items: flex-end; gap: 1rem; height: 120px; margin-top: 1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; }
-        .bar { width: 50%; border-radius: 8px 8px 0 0; display: flex; flex-direction: column; justify-content: flex-start; text-align: center; color: white; font-weight: bold; padding-top: 0.5rem; transition: height 1s ease-out; }
-        .bar-pt { background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%); height: 60%; }
-        .bar-ft { background: linear-gradient(180deg, #34d399 0%, #10b981 100%); height: 100%; }
-
-        .iso-img { width: 100%; border-radius: 12px; transition: transform 0.3s ease; }
-        .iso-img:hover { transform: scale(1.05); }
-
-        /* Book Slider */
-        .bookSlider { width: 100%; padding: 40px 0; overflow: hidden; }
-        .bookSlider .swiper-slide { width: 200px; height: 280px; transition: opacity 0.3s ease; }
-        .bookSlider .swiper-slide img { width: 100%; height: 100%; border-radius: 12px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 3px solid white; }
-        @media (min-width: 768px) { .bookSlider .swiper-slide { width: 250px; height: 350px; } }
+        /* Restored Smooth Book Slider */
+        .bookSlider { width: 100%; padding-top: 40px; padding-bottom: 50px; overflow: hidden; }
+        .bookSlider .swiper-slide { background-position: center; background-size: cover; width: 250px; height: 350px; transition: opacity 0.3s ease; }
+        .bookSlider .swiper-slide img { display: block; width: 100%; height: 100%; border-radius: 12px; object-fit: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.3); border: 3px solid white; }
         .bookSlider .swiper-slide:not(.swiper-slide-active) { opacity: 0.6; }
+        
+        /* Spinner for secure redirect */
+        .spinner { border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top: 3px solid white; width: 20px; height: 20px; animation: spin 1s linear infinite; display: none; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 
 <body class="font-sans text-slate-800 bg-background flex flex-col min-h-screen">
     
-    <!-- Scroll Progress Bar -->
-    <div id="progressBar" class="fixed top-0 left-0 h-1 bg-accent z-[60] w-0 shadow-[0_0_10px_rgba(236,72,153,0.8)]"></div>
-
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav h-20 shadow-sm">
-        <div class="w-full mx-auto px-4 h-full flex justify-between items-center bg-blue-900">
-            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
-                    <img src="image/nehabooklogo.png" alt="Logo">
+        <div class="w-full mx-auto px-6 h-full flex justify-between items-center bg-primary">
+            <div class="flex items-center gap-4 cursor-pointer" onclick="window.scrollTo(0,0)">
+                <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center p-1">
+                    <img src="image/nehabooklogo.png" alt="Logo" class="w-full h-full object-contain">
                 </div>
-                <div class="flex flex-col hidden sm:flex">
-                    <span class="text-[9px] uppercase tracking-widest text-accent font-black">MSME Approved</span>
-                    <span class="text-[10px] text-white font-bold">Verified Work From Home</span>
+                <div class="flex flex-col">
+                    <span class="text-[10px] uppercase tracking-widest text-accent font-black">MSME Approved</span>
+                    <span class="text-sm text-white font-bold tracking-wide">Nisha Book Publication</span>
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <button onclick="trackAndRedirect('Header_Telegram_Nav')" class="hidden md:flex items-center gap-2 bg-telegram text-white px-5 py-2.5 rounded-full font-bold hover:bg-blue-600 transition shadow-lg">
-                    <i class="fab fa-telegram-plane"></i> Join Telegram
-                </button>
-                <button id="language-toggle" class="bg-rose px-4 py-2 rounded-xl text-[10px] font-black text-accent border border-pink-100 uppercase">
-                    <span data-lang="en">EN</span>
-                    <span data-lang="ml" style="display:none">ML</span>
-                    <span data-lang="hi" style="display:none">HI</span>
+                <button onclick="trackAndRedirect('Header_Telegram_Nav', this)" class="hidden md:flex items-center gap-2 bg-telegram text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-500 transition shadow-md">
+                    <span class="btn-text flex items-center gap-2"><i class="fab fa-telegram-plane"></i> Join Telegram Channel</span>
+                    <div class="spinner"></div>
                 </button>
             </div>
         </div>
@@ -145,194 +119,248 @@
 
     <main class="flex-grow pt-20">
         
-        <!-- Hero Section -->
-        <section class="pt-12 pb-16 lg:pt-24 lg:pb-24">
+        <!-- Professional Hero Section -->
+        <section class="pt-16 pb-16 lg:pt-28 lg:pb-24">
             <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 text-green-700 text-[10px] font-black uppercase tracking-widest mb-6 border border-green-200 shadow-sm">
-                        <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-                        GOVERNMENT OF INDIA MSME Verified
+                <div class="reveal active">
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-widest mb-6 border border-slate-200">
+                        <img src="image/stiyamav%20jaite.png" alt="Gov Logo" class="h-6 w-auto">
+                        Government of India Verified
                     </div>
                     
-                    <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-4">
-                        Turn Your Handwriting <br><span class='text-primary italic font-serif'>Into Assured Income.</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight mb-6">
+                        Transform Your Handwriting into a <span class='text-primary'>Professional Income Stream.</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed font-medium">
-                        Write projects in books from your home. Get your <span class="text-green-600 font-bold">salary in advance</span>. No experience needed.
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        Join India's premier remote publishing team. Complete handwritten manuscripts from home with guaranteed advance payouts and highly flexible timelines.
                     </p>
 
-                    <!-- Visual Income Chart -->
-                    <div class="bg-white p-6 rounded-3xl shadow-lg border border-slate-100 mb-8 reveal active">
-                        <h3 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">Expected Monthly Earnings</h3>
-                        <div class="bar-chart-container">
-                            <div class="bar bar-pt">
-                                <span class="text-sm mt-2">₹15k - ₹18k</span>
-                                <span class="text-[10px] mt-auto pb-2 text-blue-100">Part Time</span>
-                            </div>
-                            <div class="bar bar-ft">
-                                <span class="text-sm mt-2">₹24k - ₹28k</span>
-                                <span class="text-[10px] mt-auto pb-2 text-green-100">Full Time</span>
-                            </div>
-                        </div>
+                    <div class="space-y-3 text-slate-700 mb-10 font-medium">
+                        <div class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Minimum Qualification: 10th Standard / 18+ Years Age</div>
+                        <div class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Guaranteed Advance Salary Disbursements</div>
+                        <div class="flex items-center gap-3"><i class="fas fa-check-circle text-accent"></i> Official ISO 9001:2015 Certified Operations</div>
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button onclick="trackAndRedirect('Hero_Apply_Button')" class="w-full sm:w-auto px-8 py-5 bg-telegram text-white text-lg font-black rounded-2xl shadow-[0_10px_20px_rgba(0,136,204,0.3)] hover:-translate-y-1 transition-all btn-pulse flex items-center justify-center gap-3">
-                            <i class="fab fa-telegram-plane text-2xl"></i> Join Telegram to Apply
+                        <button onclick="trackAndRedirect('Hero_Apply_Button', this)" class="w-full sm:w-auto px-8 py-4 bg-primary text-white text-lg font-bold rounded-lg shadow-lg hover:bg-blue-800 transition-all flex items-center justify-center gap-3">
+                            <span class="btn-text flex items-center gap-2">Apply via Official Telegram <i class="fab fa-telegram-plane"></i></span>
+                            <div class="spinner"></div>
                         </button>
                     </div>
                 </div>
-                <div class="hidden lg:block relative">
-                    <img src="photo-1455390582262-044cdead277a-auto-format-fit-crop-w-800-q-80.jpg" class="rounded-[40px] shadow-2xl w-full h-[600px] object-cover" alt="Writing Project">
-                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-4 reveal">
-                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xl"><i class="fas fa-check-double"></i></div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-900">100% Secure Process</p>
-                            <p class="text-xs text-slate-500">ISO Certified Company</p>
-                        </div>
+                
+                <div class="hidden lg:block relative reveal active">
+                    <img src="photo-1455390582262-044cdead277a-auto-format-fit-crop-w-800-q-80.jpg" class="rounded-2xl shadow-2xl w-full h-[550px] object-cover" alt="Writing Project">
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Statistics Section -->
+        <section class="py-12 bg-white border-y border-slate-100 reveal">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-100">
+                    <div>
+                        <h3 class="text-4xl font-black text-primary mb-2 stat-counter" data-target="1540">0</h3>
+                        <p class="text-sm font-bold text-slate-500 uppercase tracking-widest">Books Published</p>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-black text-primary mb-2"><span class="stat-counter" data-target="215">0</span>+</h3>
+                        <p class="text-sm font-bold text-slate-500 uppercase tracking-widest">Active Projects</p>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-black text-primary mb-2 stat-counter" data-target="74">0</h3>
+                        <p class="text-sm font-bold text-slate-500 uppercase tracking-widest">Expert Editors</p>
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-black text-primary mb-2 stat-counter" data-target="112">0</h3>
+                        <p class="text-sm font-bold text-slate-500 uppercase tracking-widest">Industry Awards</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- PROJECT PLANS SECTION (Moved up to be immediately visible) -->
-        <section id="projects" class="py-16 bg-rose/30 border-y border-pink-50">
+        <!-- PROJECT PLANS SECTION -->
+        <section id="projects" class="py-20 bg-slate-50">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="text-center mb-12 reveal">
-                    <h2 class="text-3xl md:text-5xl font-serif font-medium text-slate-900 mb-4">Pick Your Work Project</h2>
-                    <p class="text-slate-500 text-lg">Select a plan below and join our Telegram channel to receive your writing kit.</p>
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Select Your Freelance Tier</h2>
+                    <p class="text-slate-500 text-lg">Choose a manuscript project below. Secure your position through our official Telegram channel.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div class="bg-white rounded-[40px] p-8 shadow-lg border border-slate-100 flex flex-col reveal hover:-translate-y-2 transition-transform">
-                        <h3 class="text-2xl font-black text-slate-900 mb-2">Basic Project</h3>
+                    <!-- Tier 1 -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col reveal hover:shadow-xl transition-all duration-300">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Basic Tier</div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-4">Project Alpha</h3>
                         <div class="text-4xl font-black text-primary mb-6">₹25,000</div>
-                        <ul class="space-y-4 text-sm font-bold text-slate-600 flex-grow mb-8">
-                            <li class="flex items-center gap-3"><i class="fas fa-file-alt text-accent"></i> 50 Pages (Both Sides)</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-clock text-accent"></i> Time limit: 7 Days</li>
-                            <li class="flex items-center gap-3 text-slate-900 font-black"><i class="fas fa-money-bill-wave text-green-500"></i> Salary: Advance Payment</li>
+                        <ul class="space-y-4 text-sm font-medium text-slate-600 flex-grow mb-8">
+                            <li class="flex items-center gap-3"><i class="fas fa-file-alt text-slate-400"></i> 50 Pages Volume (Both Sides)</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-clock text-slate-400"></i> Delivery Timeline: 7 Days</li>
+                            <li class="flex items-center gap-3 text-slate-900 font-bold"><i class="fas fa-shield-check text-accent"></i> Advance Salary Disbursement</li>
                         </ul>
-                        <button onclick="trackAndRedirect('Project_1_Button')" class="w-full py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-telegram transition-colors flex items-center justify-center gap-2">
-                            Select & Join <i class="fab fa-telegram-plane"></i>
+                        <button onclick="trackAndRedirect('Project_1_Button', this)" class="w-full py-4 bg-slate-100 text-slate-800 font-bold rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2 border border-slate-200">
+                            <span class="btn-text">Select Contract</span>
+                            <div class="spinner"></div>
                         </button>
                     </div>
 
-                    <!-- Project 2 (Highlighted) -->
-                    <div class="bg-gradient-to-b from-primary to-indigo-700 rounded-[40px] p-8 shadow-2xl text-white flex flex-col relative scale-100 md:scale-105 z-10 reveal hover:-translate-y-2 transition-transform">
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-widest shadow-lg">Most Popular</div>
-                        <h3 class="text-2xl font-black mb-2 mt-2">Standard Project</h3>
-                        <div class="text-4xl font-black mb-6 text-yellow-300">₹30,000</div>
-                        <ul class="space-y-4 text-sm font-bold text-indigo-100 flex-grow mb-8">
-                            <li class="flex items-center gap-3"><i class="fas fa-file-alt text-white"></i> 100 Pages (Both Sides)</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-clock text-white"></i> Time limit: 10 Days</li>
-                            <li class="flex items-center gap-3 text-white font-black"><i class="fas fa-money-bill-wave text-green-300"></i> Salary: Advance Payment</li>
+                    <!-- Tier 2 (Highlighted) -->
+                    <div class="bg-primary rounded-2xl p-8 text-white flex flex-col relative scale-100 md:scale-105 z-10 shadow-2xl reveal">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-black px-4 py-1.5 rounded-sm uppercase tracking-widest shadow-md">Recommended</div>
+                        <div class="text-xs font-bold text-blue-300 uppercase tracking-widest mb-2 mt-2">Standard Tier</div>
+                        <h3 class="text-2xl font-black mb-4">Project Beta</h3>
+                        <div class="text-4xl font-black mb-6">₹30,000</div>
+                        <ul class="space-y-4 text-sm font-medium text-blue-100 flex-grow mb-8">
+                            <li class="flex items-center gap-3"><i class="fas fa-file-alt text-blue-300"></i> 100 Pages Volume (Both Sides)</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-clock text-blue-300"></i> Delivery Timeline: 10 Days</li>
+                            <li class="flex items-center gap-3 text-white font-bold"><i class="fas fa-shield-check text-accent"></i> Advance Salary Disbursement</li>
                         </ul>
-                        <button onclick="trackAndRedirect('Project_2_Button')" class="w-full py-4 bg-white text-telegram font-black rounded-2xl hover:bg-gray-100 transition-colors flex items-center justify-center gap-2 text-lg shadow-[0_5px_15px_rgba(255,255,255,0.3)]">
-                            Select & Join <i class="fab fa-telegram-plane"></i>
+                        <button onclick="trackAndRedirect('Project_2_Button', this)" class="w-full py-4 bg-telegram text-white font-bold rounded-lg hover:bg-blue-500 transition-colors flex items-center justify-center gap-2 shadow-lg">
+                            <span class="btn-text flex items-center gap-2"><i class="fab fa-telegram-plane"></i> Proceed to Telegram</span>
+                            <div class="spinner"></div>
                         </button>
                     </div>
 
-                    <!-- Project 3 -->
-                    <div class="bg-white rounded-[40px] p-8 shadow-lg border border-slate-100 flex flex-col reveal hover:-translate-y-2 transition-transform">
-                        <h3 class="text-2xl font-black text-slate-900 mb-2">Premium Project</h3>
+                    <!-- Tier 3 -->
+                    <div class="glass-card rounded-2xl p-8 flex flex-col reveal hover:shadow-xl transition-all duration-300">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">Premium Tier</div>
+                        <h3 class="text-2xl font-black text-slate-900 mb-4">Project Gamma</h3>
                         <div class="text-4xl font-black text-primary mb-6">₹35,000</div>
-                        <ul class="space-y-4 text-sm font-bold text-slate-600 flex-grow mb-8">
-                            <li class="flex items-center gap-3"><i class="fas fa-file-alt text-accent"></i> 180 Pages (Both Sides)</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-clock text-accent"></i> Time limit: 15 Days</li>
-                            <li class="flex items-center gap-3 text-slate-900 font-black"><i class="fas fa-money-bill-wave text-green-500"></i> Salary: Advance Payment</li>
+                        <ul class="space-y-4 text-sm font-medium text-slate-600 flex-grow mb-8">
+                            <li class="flex items-center gap-3"><i class="fas fa-file-alt text-slate-400"></i> 180 Pages Volume (Both Sides)</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-clock text-slate-400"></i> Delivery Timeline: 15 Days</li>
+                            <li class="flex items-center gap-3 text-slate-900 font-bold"><i class="fas fa-shield-check text-accent"></i> Advance Salary Disbursement</li>
                         </ul>
-                        <button onclick="trackAndRedirect('Project_3_Button')" class="w-full py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-telegram transition-colors flex items-center justify-center gap-2">
-                            Select & Join <i class="fab fa-telegram-plane"></i>
+                        <button onclick="trackAndRedirect('Project_3_Button', this)" class="w-full py-4 bg-slate-100 text-slate-800 font-bold rounded-lg hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2 border border-slate-200">
+                            <span class="btn-text">Select Contract</span>
+                            <div class="spinner"></div>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Trust Points -->
-        <section class="py-12 bg-white reveal">
+        <!-- RESTORED: Video Testimonials Section -->
+        <section class="py-20 bg-slate-900 text-white reveal">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                    <div class="p-6 bg-slate-50 rounded-2xl"><i class="fas fa-shield-halved text-primary text-4xl mb-4"></i><h4 class="font-bold text-slate-800">100% Secure</h4><p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Data Protection</p></div>
-                    <div class="p-6 bg-slate-50 rounded-2xl"><i class="fas fa-rotate-left text-accent text-4xl mb-4"></i><h4 class="font-bold text-slate-800">Full Refund</h4><p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">On Registration</p></div>
-                    <div class="p-6 bg-slate-50 rounded-2xl"><i class="fas fa-certificate text-green-500 text-4xl mb-4"></i><h4 class="font-bold text-slate-800">ISO Certified</h4><p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Global Standard</p></div>
-                    <div class="p-6 bg-slate-50 rounded-2xl"><i class="fas fa-headset text-telegram text-4xl mb-4"></i><h4 class="font-bold text-slate-800">24/7 Support</h4><p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Telegram Artists</p></div>
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Verified Freelancer Experiences</h2>
+                    <p class="text-slate-400">Hear directly from our active manuscript writers.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-black">
+                        <video controls class="w-full h-56 object-cover"><source src="image/video/1.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-black">
+                        <video controls class="w-full h-56 object-cover"><source src="image/video/2.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-slate-700 shadow-2xl bg-black">
+                        <video controls class="w-full h-56 object-cover"><source src="https://nehabookpublication.com/image/video/video-3.mp4" type="video/mp4"></video>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Books 3D Slider Section -->
-        <section class="py-16 bg-slate-900 text-white reveal">
+        <!-- RESTORED: Smooth 3D Book Slider -->
+        <section class="py-16 bg-white border-b border-slate-100 reveal">
             <div class="max-w-7xl mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Successful Creations</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto mb-8">Take a look at the premium book publishing and formatting done by our verified remote artists.</p>
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Our Published Portfolio</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto mb-6">Review the exceptional formatting and publishing quality produced by our remote team.</p>
+                
                 <div class="swiper bookSlider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="image/books/1.png" alt="Book 1" onerror="this.src='https://via.placeholder.com/250x350/333/fff?text=Book+Cover'"></div>
-                        <div class="swiper-slide"><img src="image/books/2.png" alt="Book 2" onerror="this.src='https://via.placeholder.com/250x350/333/fff?text=Book+Cover'"></div>
-                        <div class="swiper-slide"><img src="image/books/3.png" alt="Book 3" onerror="this.src='https://via.placeholder.com/250x350/333/fff?text=Book+Cover'"></div>
-                        <div class="swiper-slide"><img src="image/books/4.png" alt="Book 4" onerror="this.src='https://via.placeholder.com/250x350/333/fff?text=Book+Cover'"></div>
+                        <div class="swiper-slide"><img src="image/books/1.png" alt="Publication 1" onerror="this.src='https://via.placeholder.com/250x350/1e3a8a/fff?text=Publication'"></div>
+                        <div class="swiper-slide"><img src="image/books/2.png" alt="Publication 2" onerror="this.src='https://via.placeholder.com/250x350/1e3a8a/fff?text=Publication'"></div>
+                        <div class="swiper-slide"><img src="image/books/3.png" alt="Publication 3" onerror="this.src='https://via.placeholder.com/250x350/1e3a8a/fff?text=Publication'"></div>
+                        <div class="swiper-slide"><img src="image/books/4.png" alt="Publication 4" onerror="this.src='https://via.placeholder.com/250x350/1e3a8a/fff?text=Publication'"></div>
+                        <div class="swiper-slide"><img src="image/books/5.png" alt="Publication 5" onerror="this.src='https://via.placeholder.com/250x350/1e3a8a/fff?text=Publication'"></div>
+                        <div class="swiper-slide"><img src="image/books/6.png" alt="Publication 6" onerror="this.src='https://via.placeholder.com/250x350/1e3a8a/fff?text=Publication'"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Reviews Scroll -->
-        <section class="py-20 bg-gradient-to-b from-gray-100 to-gray-300 overflow-hidden reveal">
-            <div class="max-w-7xl mx-auto px-6 text-center mb-10">
-                <h2 class="text-3xl font-serif font-bold text-slate-900">What Our Writers Say</h2>
-            </div>
-            <div class="max-w-3xl mx-auto px-6 relative h-[450px] overflow-hidden rounded-[30px] bg-white/50 backdrop-blur-sm border border-white p-6 shadow-inner">
-                <div id="reviewScroll" class="space-y-6 animate-scroll"></div>
+        <!-- RESTORED: Official Certifications Gallery -->
+        <section class="py-16 bg-slate-50 reveal">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Official Certifications & Compliance</h2>
+                    <p class="text-slate-500">Nisha Book Publication operates under strict ISO 9001:2015 guidelines.</p>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                    <img src="../nehabookpublication.com/image/GlobalBooksPublication%20(1).jpeg" class="w-full rounded-lg shadow-sm border border-slate-200 hover:shadow-lg transition-all" alt="Certificate" onerror="this.style.display='none'">
+                    <img src="../nehabookpublication.com/image/GlobalBooksPublication%20(1).png" class="w-full rounded-lg shadow-sm border border-slate-200 hover:shadow-lg transition-all" alt="Certificate" onerror="this.style.display='none'">
+                    <img src="../nehabookpublication.com/image/GlobalBooksPublication%20(3).jpeg" class="w-full rounded-lg shadow-sm border border-slate-200 hover:shadow-lg transition-all" alt="Certificate" onerror="this.style.display='none'">
+                    <img src="../nehabookpublication.com/image/gbp.png" class="w-full rounded-lg shadow-sm border border-slate-200 hover:shadow-lg transition-all" alt="Certificate" onerror="this.style.display='none'">
+                </div>
             </div>
         </section>
 
-        <!-- Map -->
-        <div class="reveal">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202041.08389221638!2d72.87835265000001!3d19.081507449999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e1!3m2!1sen!2sin!4v1775471515551!5m2!1sen!2sin" width="100%" height="350" style="border:0; filter: grayscale(50%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+        <!-- Text Reviews Scroll -->
+        <section class="py-20 bg-white overflow-hidden reveal">
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Continuous Support & Trust</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        We pride ourselves on transparent operations and timely payments. Our dedicated Telegram support desk ensures you are never alone during your manuscript drafting process.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-blue-100 flex items-center justify-center text-primary shrink-0"><i class="fas fa-headset"></i></div>
+                            <div><h4 class="font-bold text-slate-900">Direct Artist Helpline</h4><p class="text-sm text-slate-500">Available via our official channels.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-green-100 flex items-center justify-center text-accent shrink-0"><i class="fas fa-money-check-alt"></i></div>
+                            <div><h4 class="font-bold text-slate-900">100% Secure Refunds</h4><p class="text-sm text-slate-500">Registration fees are fully refundable with first payout.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative h-[400px] overflow-hidden rounded-2xl bg-slate-50 border border-slate-100 p-6 shadow-inner">
+                    <div id="reviewScroll" class="space-y-4 animate-scroll"></div>
+                </div>
+            </div>
+        </section>
 
     </main>
     
-    <footer class="bg-slate-900 text-white py-16 px-6 border-t border-slate-800 pb-32 md:pb-16">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-400 gap-8">
-            <div class="w-48"><img src="image/stiyamav%20jaite.png" class="w-full h-auto brightness-0 invert opacity-50" alt="Government Logo"></div>
+    <footer class="bg-primary text-white py-12 px-6 pb-28 md:pb-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-300 gap-6">
+            <div class="w-32"><img src="image/stiyamav%20jaite.png" class="w-full h-auto brightness-0 invert" alt="Government Logo"></div>
             <div class="text-center">
-                <span class="font-black text-white text-xl block mb-2">NISHA BOOK PUBLICATION PVT. LTD.</span>
-                <p class="text-sm">Trusted Work From Home Platform Since 2024</p>
+                <span class="font-black text-white text-lg block mb-1">NISHA BOOK PUBLICATION PVT. LTD.</span>
+                <p class="text-xs">Corporate Headquarters | ISO 9001:2015 Certified</p>
             </div>
-            <div class="flex gap-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                <a href="#" class="hover:text-white transition">Security</a>
-                <a href="#" class="hover:text-white transition">Terms</a>
+            <div class="flex gap-4 text-xs font-bold text-slate-400 uppercase tracking-widest">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <!-- STICKY MOBILE CTA (Bottom Fix) -->
-    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-gray-200 z-[100] md:hidden shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
-        <button onclick="trackAndRedirect('Sticky_Mobile_Footer')" class="w-full py-4 bg-telegram text-white text-lg font-black rounded-xl shadow-lg flex items-center justify-center gap-3 btn-pulse">
-            <i class="fab fa-telegram-plane text-2xl"></i> Join Official Telegram
+    <!-- Corporate Sticky Mobile CTA -->
+    <div class="fixed bottom-0 left-0 right-0 p-3 bg-white/95 backdrop-blur-md border-t border-slate-200 z-[100] md:hidden shadow-[0_-5px_15px_rgba(0,0,0,0.05)]">
+        <button onclick="trackAndRedirect('Sticky_Mobile_Footer', this)" class="w-full py-3.5 bg-telegram text-white text-base font-bold rounded-lg shadow-md flex items-center justify-center gap-2">
+            <span class="btn-text flex items-center gap-2"><i class="fab fa-telegram-plane text-xl"></i> Official Telegram Desk</span>
+            <div class="spinner"></div>
         </button>
-    </div>
-
-    <!-- Live Social Proof Toast -->
-    <div id="liveToast" class="fixed bottom-24 md:bottom-8 left-4 md:left-8 z-50 bg-white border border-green-200 shadow-2xl rounded-2xl p-4 flex items-center gap-4 toast-enter transition-all duration-500 w-72">
-        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
-            <i class="fas fa-check"></i>
-        </div>
-        <div>
-            <p id="toastName" class="text-sm font-bold text-slate-900">Rahul from Delhi</p>
-            <p id="toastAction" class="text-xs text-slate-500">just joined the Telegram channel!</p>
-        </div>
     </div>
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // 1. Meta Pixel & Redirect Logic (Accurate Data tracking)
-        function trackAndRedirect(buttonId) {
-            // Send exact button click data to Meta Pixel
+        // 1. Refined Meta Pixel & Secure Loading Redirect
+        function trackAndRedirect(buttonId, btnElement) {
+            // UI Feedback: Show loading spinner, hide text
+            const textSpan = btnElement.querySelector('.btn-text');
+            const spinner = btnElement.querySelector('.spinner');
+            if(textSpan && spinner) {
+                textSpan.style.display = 'none';
+                spinner.style.display = 'block';
+                btnElement.style.opacity = '0.9';
+                btnElement.style.cursor = 'wait';
+            }
+
+            // Track Pixel Event
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead', {
                     content_name: 'Telegram_Join',
@@ -341,31 +369,62 @@
                     currency: 'INR'
                 });
             }
-            // Small delay to ensure Pixel fires before browser unloads the page
+            
+            // Redirect after 400ms (feels like a secure connection is being made)
             setTimeout(() => {
                 window.location.href = 'https://t.me/nisha_publication';
-            }, 300);
+                // Reset button state just in case user navigates back
+                if(textSpan && spinner) {
+                    textSpan.style.display = 'flex';
+                    spinner.style.display = 'none';
+                    btnElement.style.opacity = '1';
+                    btnElement.style.cursor = 'pointer';
+                }
+            }, 400);
         }
 
-        // 2. Scroll Progress Bar
+        // 2. Scroll Reveals & Number Counter Animation
+        let countersTriggered = false;
         window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progressBar").style.width = scrolled + "%";
-            
-            // Reveal animations
+            // Standard Reveal
             const reveals = document.querySelectorAll('.reveal');
+            const windowHeight = window.innerHeight;
+            
             reveals.forEach(reveal => {
-                const windowHeight = window.innerHeight;
                 const revealTop = reveal.getBoundingClientRect().top;
                 if (revealTop < windowHeight - 50) {
                     reveal.classList.add('active');
                 }
             });
+
+            // Trigger Stat Counters once when scrolled into view
+            const statSection = document.querySelector('.stat-counter');
+            if (statSection) {
+                const statTop = statSection.getBoundingClientRect().top;
+                if (statTop < windowHeight && !countersTriggered) {
+                    countersTriggered = true;
+                    document.querySelectorAll('.stat-counter').forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const duration = 2000; // 2 seconds
+                        const increment = target / (duration / 16); 
+                        
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                counter.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                    });
+                }
+            }
         };
 
-        // 3. Initialize Swiper for Books
+        // 3. Restored Original Swiper Book Configuration
         document.addEventListener('DOMContentLoaded', () => {
             new Swiper(".bookSlider", {
                 effect: "coverflow",
@@ -373,90 +432,48 @@
                 centeredSlides: true,
                 slidesPerView: "auto",
                 loop: true,
-                coverflowEffect: { rotate: 15, stretch: 0, depth: 200, modifier: 1, slideShadows: true },
-                autoplay: { delay: 2500, disableOnInteraction: false }
+                coverflowEffect: {
+                    rotate: 20, 
+                    stretch: 0, 
+                    depth: 250, 
+                    modifier: 1, 
+                    slideShadows: true,
+                },
+                autoplay: { 
+                    delay: 2000, 
+                    disableOnInteraction: false 
+                }
             });
             
             // Trigger initial scroll check
             window.dispatchEvent(new Event('scroll'));
         });
 
-        // 4. Live Toast Notification Logic (Social Proof)
-        const toastNames = ["Amit", "Neha", "Pooja", "Vikram", "Suresh", "Anjali", "Rohan", "Kavita"];
-        const toastCities = ["Mumbai", "Delhi", "Pune", "Jaipur", "Lucknow", "Bhopal", "Patna"];
-        const toastActions = ["just joined Telegram!", "selected Premium Project", "just got advance salary ₹15,000", "started writing today!"];
-        
-        function showRandomToast() {
-            const toast = document.getElementById('liveToast');
-            const nameEl = document.getElementById('toastName');
-            const actionEl = document.getElementById('toastAction');
-            
-            const rName = toastNames[Math.floor(Math.random() * toastNames.length)];
-            const rCity = toastCities[Math.floor(Math.random() * toastCities.length)];
-            const rAction = toastActions[Math.floor(Math.random() * toastActions.length)];
-            
-            nameEl.textContent = `${rName} from ${rCity}`;
-            actionEl.textContent = rAction;
-            
-            toast.classList.remove('toast-enter');
-            toast.classList.add('toast-active');
-            
-            setTimeout(() => {
-                toast.classList.remove('toast-active');
-                toast.classList.add('toast-enter');
-            }, 4000); // Hide after 4s
-        }
-        
-        // Show first toast after 3 seconds, then every 12 seconds
-        setTimeout(() => {
-            showRandomToast();
-            setInterval(showRandomToast, 12000);
-        }, 3000);
-
-        // 5. Populate Fake Reviews
-        const names = ["Rahul Sharma", "Pooja Verma", "Amit Singh", "Neha Gupta", "Rohit Meena", "Anjali Yadav", "Vikas Kumar", "Priya Patel"];
+        // 4. Populate Text Reviews (Corporate tone)
+        const names = ["Aarav S.", "Priya V.", "Vikram M.", "Neha G.", "Rohan K.", "Anjali D."];
         const reviewTemplates = [
-            "Salary hamesha time par milti hai. Best WFH!",
-            "2 saal se work from home kar raha hu. Trusted platform.",
-            "Advance payment mil gaya. Writing kit fast deliver hua.",
-            "Students ke liye best earning opportunity hai.",
-            "No hidden charges, direct Telegram support is best."
+            "Consistent project availability and strictly on-time advance disbursements.",
+            "Highly professional management. The official Telegram channel is very responsive.",
+            "The manuscript guidelines were clear. Completed my first project seamlessly.",
+            "Excellent framework for remote writers. Registration process was fully transparent."
         ];
         const container = document.getElementById("reviewScroll");
         
         function createReview(name, text) {
             const initial = name.charAt(0).toUpperCase();
             return `
-            <div class="flex items-center gap-4 bg-white/80 p-4 rounded-2xl shadow-sm border border-slate-100">
-                <div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xl shrink-0">${initial}</div>
+            <div class="flex gap-4 bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                <div class="w-10 h-10 rounded bg-slate-100 text-slate-700 flex items-center justify-center font-bold shrink-0">${initial}</div>
                 <div>
-                    <h4 class="font-bold text-slate-800 text-sm">${name} <i class="fas fa-check-circle text-blue-500 ml-1"></i></h4>
-                    <p class="text-xs text-slate-600 mt-1">"${text}"</p>
+                    <h4 class="font-bold text-slate-800 text-sm">${name}</h4>
+                    <p class="text-xs text-slate-500 mt-1">"${text}"</p>
                 </div>
             </div>`;
         }
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 20; i++) {
             container.innerHTML += createReview(names[i % names.length], reviewTemplates[i % reviewTemplates.length]);
         }
         container.innerHTML += container.innerHTML; // Duplicate for smooth infinite scroll
-
-        // 6. Language Toggle (Simplified)
-        let currentLang = 'en';
-        document.getElementById('language-toggle').addEventListener('click', () => {
-            const langs = ['en', 'ml', 'hi'];
-            currentLang = langs[(langs.indexOf(currentLang) + 1) % langs.length];
-            document.querySelectorAll('#language-toggle span').forEach(el => el.style.display = 'none');
-            document.querySelector(`#language-toggle span[data-lang="${currentLang}"]`).style.display = 'inline';
-            
-            const heroTitle = document.querySelector('h1');
-            if (currentLang === 'ml') {
-                heroTitle.innerHTML = "നിങ്ങളുടെ കൈയക്ഷരം <br><span class='text-primary italic font-serif'>വരുമാനമാക്കി മാറ്റാം.</span>";
-            } else if (currentLang === 'hi') {
-                heroTitle.innerHTML = "अपनी लिखावट को <br><span class='text-primary italic font-serif'>आय में बदलें।</span>";
-            } else {
-                heroTitle.innerHTML = "Turn Your Handwriting <br><span class='text-primary italic font-serif'>Into Assured Income.</span>";
-            }
-        });
     </script>
 </body>
 </html>
