@@ -3,7 +3,6 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- Viewport locked to prevent ANY horizontal scaling or zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Nisha Book Publication | Official Portal</title>
     
@@ -45,47 +44,43 @@
     </script>
     
     <style>
-        /* Strict Viewport Control to prevent Wobble */
         html, body { 
             width: 100vw; 
             max-width: 100%; 
             overflow-x: hidden; 
-            background-color: #f8fafc; 
+            background-color: rgba(248, 250, 252, 0.85); 
             -webkit-font-smoothing: antialiased;
         }
         
+        /* Restored Satyamev Jayate Background */
         body::before {
             content: ""; position: fixed; inset: 0;
-            background-image: url("image/mannubhai.png");
+            background-image: url("image/stiyamav%20jaite.png");
             background-repeat: no-repeat; background-position: center;
-            background-size: 30% auto; z-index: -2; opacity: 0.08;
+            background-size: 35% auto; z-index: -2; opacity: 0.12;
         }
-        @media (max-width: 768px) { body::before { background-size: 80% auto; opacity: 0.05; } }
+        @media (max-width: 768px) { body::before { background-size: 85% auto; opacity: 0.15; } }
         
-        /* Smooth Reveal */
+        body::after { content: ""; position: fixed; inset: 0; background-color: rgba(255, 255, 255, 0.85); z-index: -1; }
+
         .reveal { opacity: 0; transform: translateY(15px); transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Swiper Pagination Customization */
         .swiper-pagination-bullet { background: #cbd5e1; opacity: 1; transition: all 0.3s; }
         .swiper-pagination-bullet-active { background: #1e3a8a; width: 16px; border-radius: 4px; }
         .swiper-container-padding { padding-bottom: 30px !important; }
 
-        /* Compact Chart */
         .chart-box { display: flex; align-items: flex-end; gap: 10px; height: 60px; border-bottom: 1px solid #e2e8f0; padding-bottom: 2px; }
         .chart-bar { width: 50px; border-radius: 6px 6px 0 0; display: flex; flex-direction: column; justify-content: flex-start; text-align: center; color: white; font-weight: 700; font-size: 10px; padding-top: 4px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .bar-pt { background: linear-gradient(to top, #3b82f6, #60a5fa); height: 65%; }
         .bar-ft { background: linear-gradient(to top, #059669, #10b981); height: 100%; }
 
-        /* Floating Toast */
         .toast-enter { transform: translate(-50%, -150%); opacity: 0; }
         .toast-active { transform: translate(-50%, 0); opacity: 1; }
 
-        /* Marquee Reviews */
         @keyframes scrollUp { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
         .animate-scroll { animation: scrollUp 40s linear infinite; }
         
-        /* Book Slider Adjustments */
         .bookSlider .swiper-slide { width: 140px; height: 200px; transition: opacity 0.3s; }
         .bookSlider .swiper-slide img { width: 100%; height: 100%; border-radius: 8px; object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 2px solid white; }
     </style>
@@ -93,7 +88,7 @@
 
 <body class="font-sans text-slate-800">
 
-    <!-- Live Social Proof Toast (Drops from top) -->
+    <!-- Live Social Proof Toast -->
     <div id="liveToast" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur shadow-2xl border border-green-100 rounded-full py-2 px-4 flex items-center gap-3 z-[60] toast-enter transition-all duration-500 w-max max-w-[90vw] pointer-events-none">
         <div class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-[10px] shrink-0">
             <i class="fas fa-check"></i>
@@ -123,7 +118,7 @@
         
         <!-- Hero Section -->
         <section class="py-8 px-4 max-w-7xl mx-auto w-full">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="grid md:grid-cols-2 gap-6 items-center">
                 <div class="reveal active w-full">
                     <div class="inline-flex items-center gap-2 mb-4 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
                         <img src="image/stiyamav%20jaite.png" alt="Gov" class="h-5 w-auto">
@@ -135,7 +130,7 @@
                             <svg class="absolute w-full h-2 -bottom-1 left-0 text-blue-200" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="transparent"/></svg>
                         </span>
                     </h1>
-                    <p class="text-sm md:text-base text-slate-600 mb-6 leading-relaxed">
+                    <p class="text-sm md:text-base text-slate-600 mb-5 leading-relaxed">
                         Join India's verified remote team. Write projects from home with guaranteed advance payout.
                     </p>
 
@@ -163,62 +158,69 @@
                         Apply via Telegram <i class="fab fa-telegram-plane text-xl"></i>
                     </button>
                 </div>
+                
+                <!-- Restored Hero Image on Mobile & Desktop -->
+                <div class="w-full reveal active mt-2 md:mt-0">
+                    <img src="photo-1455390582262-044cdead277a-auto-format-fit-crop-w-800-q-80.jpg" class="rounded-2xl shadow-lg w-full h-48 md:h-80 object-cover border-4 border-white">
+                </div>
             </div>
         </section>
 
         <!-- Auto-Sliding Projects (Swiper) -->
         <section class="py-10 bg-slate-100 border-y border-slate-200 reveal w-full">
             <div class="max-w-7xl mx-auto w-full px-4 relative">
-                <div class="mb-6 text-center">
-                    <h2 class="text-2xl font-extrabold text-slate-900">Select Project Tier</h2>
-                    <p class="text-xs text-slate-500 mt-1">Swipe to view contracts</p>
+                <div class="mb-8 text-center">
+                    <h2 class="text-2xl font-extrabold text-slate-900">Select Professional Contract</h2>
+                    <p class="text-xs text-slate-500 mt-2 font-medium">Swipe to explore verified remote writing assignments</p>
                 </div>
                 
                 <div class="swiper projectSlider swiper-container-padding w-full">
                     <div class="swiper-wrapper">
                         <!-- Project 1 -->
                         <div class="swiper-slide w-[85vw] max-w-[320px]">
-                            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-soft h-full flex flex-col">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Basic</span>
-                                <h3 class="text-xl font-black text-slate-900 mt-1">Project Alpha</h3>
+                            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-soft h-full flex flex-col relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-50 rounded-bl-full -z-10"></div>
+                                <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Entry Level</span>
+                                <h3 class="text-xl font-black text-slate-900 mt-1">Starter Assignment</h3>
                                 <div class="text-3xl font-black text-primary my-4">₹25,000</div>
                                 <ul class="text-sm font-medium text-slate-600 space-y-3 mb-6 flex-grow">
-                                    <li class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-slate-50 flex items-center justify-center"><i class="fas fa-book-open text-slate-400 text-xs"></i></div> 50 Pages (Both Sides)</li>
-                                    <li class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-slate-50 flex items-center justify-center"><i class="fas fa-clock text-slate-400 text-xs"></i></div> 7 Days Time Limit</li>
-                                    <li class="flex items-center gap-2 text-slate-800 font-bold"><div class="w-6 h-6 rounded bg-green-50 flex items-center justify-center"><i class="fas fa-money-bill text-accent text-xs"></i></div> Advance Payment</li>
+                                    <li class="flex items-center gap-3"><div class="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center"><i class="fas fa-book-open text-slate-400 text-[10px]"></i></div> 50 Pages (Both Sides)</li>
+                                    <li class="flex items-center gap-3"><div class="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center"><i class="fas fa-clock text-slate-400 text-[10px]"></i></div> Flexible 7-Day Timeline</li>
+                                    <li class="flex items-center gap-3 text-slate-800 font-bold"><div class="w-7 h-7 rounded-full bg-green-50 flex items-center justify-center"><i class="fas fa-shield-check text-accent text-[10px]"></i></div> Guaranteed Advance</li>
                                 </ul>
-                                <button onclick="trackAndRedirect('Proj_1')" class="w-full py-3 bg-slate-50 text-slate-700 text-sm font-bold rounded-lg border border-slate-200 active:bg-slate-100">Select Plan</button>
+                                <button onclick="trackAndRedirect('Proj_1')" class="w-full py-3.5 bg-slate-100 text-slate-800 text-sm font-bold rounded-xl border border-slate-200 hover:bg-slate-200 transition-colors">Select Assignment</button>
                             </div>
                         </div>
 
                         <!-- Project 2 (Popular) -->
                         <div class="swiper-slide w-[85vw] max-w-[320px]">
                             <div class="bg-primary rounded-2xl p-6 shadow-xl h-full flex flex-col relative text-white border border-blue-700">
-                                <div class="absolute top-0 right-6 bg-accent text-[10px] font-black px-3 py-1 rounded-b-lg uppercase tracking-wider shadow-md">Popular</div>
-                                <span class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">Standard</span>
-                                <h3 class="text-xl font-black mt-1">Project Beta</h3>
+                                <div class="absolute top-0 right-6 bg-accent text-[10px] font-black px-3 py-1.5 rounded-b-lg uppercase tracking-wider shadow-md">Maximum Yield</div>
+                                <span class="text-[10px] font-extrabold text-blue-300 uppercase tracking-widest">Standard</span>
+                                <h3 class="text-xl font-black mt-1">Professional Contract</h3>
                                 <div class="text-3xl font-black text-white my-4">₹30,000</div>
                                 <ul class="text-sm font-medium text-blue-100 space-y-3 mb-6 flex-grow">
-                                    <li class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-blue-800 flex items-center justify-center"><i class="fas fa-book-open text-blue-300 text-xs"></i></div> 100 Pages (Both Sides)</li>
-                                    <li class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-blue-800 flex items-center justify-center"><i class="fas fa-clock text-blue-300 text-xs"></i></div> 10 Days Time Limit</li>
-                                    <li class="flex items-center gap-2 font-bold text-white"><div class="w-6 h-6 rounded bg-green-500/20 flex items-center justify-center"><i class="fas fa-money-bill text-accent text-xs"></i></div> Advance Payment</li>
+                                    <li class="flex items-center gap-3"><div class="w-7 h-7 rounded-full bg-blue-800 flex items-center justify-center"><i class="fas fa-file-alt text-blue-300 text-[10px]"></i></div> 100 Pages (Both Sides)</li>
+                                    <li class="flex items-center gap-3"><div class="w-7 h-7 rounded-full bg-blue-800 flex items-center justify-center"><i class="fas fa-bolt text-yellow-400 text-[10px]"></i></div> Fast-Tracked 10 Days</li>
+                                    <li class="flex items-center gap-3 font-bold text-white"><div class="w-7 h-7 rounded-full bg-green-500/20 flex items-center justify-center"><i class="fas fa-shield-check text-accent text-[10px]"></i></div> Guaranteed Advance</li>
                                 </ul>
-                                <button onclick="trackAndRedirect('Proj_2')" class="w-full py-3 bg-telegram text-white text-sm font-bold rounded-lg shadow-md flex items-center justify-center gap-2 active:bg-blue-500"><i class="fab fa-telegram-plane"></i> Proceed</button>
+                                <button onclick="trackAndRedirect('Proj_2')" class="w-full py-3.5 bg-telegram text-white text-sm font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 active:bg-blue-500 hover:bg-blue-500 transition-colors"><i class="fab fa-telegram-plane"></i> Join Telegram to Apply</button>
                             </div>
                         </div>
 
                         <!-- Project 3 -->
                         <div class="swiper-slide w-[85vw] max-w-[320px]">
-                            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-soft h-full flex flex-col">
-                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Premium</span>
-                                <h3 class="text-xl font-black text-slate-900 mt-1">Project Gamma</h3>
+                            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-soft h-full flex flex-col relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-16 h-16 bg-slate-50 rounded-bl-full -z-10"></div>
+                                <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Advanced</span>
+                                <h3 class="text-xl font-black text-slate-900 mt-1">Elite Manuscript</h3>
                                 <div class="text-3xl font-black text-primary my-4">₹35,000</div>
                                 <ul class="text-sm font-medium text-slate-600 space-y-3 mb-6 flex-grow">
-                                    <li class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-slate-50 flex items-center justify-center"><i class="fas fa-book-open text-slate-400 text-xs"></i></div> 180 Pages (Both Sides)</li>
-                                    <li class="flex items-center gap-2"><div class="w-6 h-6 rounded bg-slate-50 flex items-center justify-center"><i class="fas fa-clock text-slate-400 text-xs"></i></div> 15 Days Time Limit</li>
-                                    <li class="flex items-center gap-2 text-slate-800 font-bold"><div class="w-6 h-6 rounded bg-green-50 flex items-center justify-center"><i class="fas fa-money-bill text-accent text-xs"></i></div> Advance Payment</li>
+                                    <li class="flex items-center gap-3"><div class="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center"><i class="fas fa-layer-group text-slate-400 text-[10px]"></i></div> 180 Pages (Both Sides)</li>
+                                    <li class="flex items-center gap-3"><div class="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center"><i class="fas fa-clock text-slate-400 text-[10px]"></i></div> 15 Days Time Limit</li>
+                                    <li class="flex items-center gap-3 text-slate-800 font-bold"><div class="w-7 h-7 rounded-full bg-green-50 flex items-center justify-center"><i class="fas fa-shield-check text-accent text-[10px]"></i></div> Guaranteed Advance</li>
                                 </ul>
-                                <button onclick="trackAndRedirect('Proj_3')" class="w-full py-3 bg-slate-50 text-slate-700 text-sm font-bold rounded-lg border border-slate-200 active:bg-slate-100">Select Plan</button>
+                                <button onclick="trackAndRedirect('Proj_3')" class="w-full py-3.5 bg-slate-100 text-slate-800 text-sm font-bold rounded-xl border border-slate-200 hover:bg-slate-200 transition-colors">Select Assignment</button>
                             </div>
                         </div>
                     </div>
@@ -228,7 +230,7 @@
         </section>
 
         <!-- Trust Badges & Sliders (Videos & Certs) -->
-        <section class="py-8 px-4 max-w-7xl mx-auto space-y-10 reveal w-full">
+        <section class="py-10 px-4 max-w-7xl mx-auto space-y-12 reveal w-full">
             
             <!-- Grid Trust Badges -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -238,24 +240,24 @@
                 <div class="bg-white p-4 rounded-xl border border-slate-100 shadow-soft flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-sky-50 flex items-center justify-center"><i class="fas fa-headset text-telegram"></i></div><div><h4 class="text-xs font-bold text-slate-900">24/7 Support</h4><p class="text-[10px] text-slate-500">Live Help</p></div></div>
             </div>
 
-            <!-- Video Swiper -->
+            <!-- Video Swiper with Thumbnails (Posters) -->
             <div class="w-full relative">
-                <h2 class="text-lg font-extrabold text-slate-900 mb-4 px-2">Writer Experiences</h2>
+                <h2 class="text-lg font-extrabold text-slate-900 mb-4 px-2">Verified Testimonials</h2>
                 <div class="swiper mediaSlider w-full">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide w-[75vw] max-w-[280px]">
                             <div class="bg-black rounded-xl overflow-hidden shadow-md">
-                                <video controls class="w-full h-40 object-cover"><source src="image/video/1.mp4" type="video/mp4"></video>
+                                <video controls poster="photo-1522202176988-66273c2fd55f.jpg" class="w-full h-44 object-cover"><source src="image/video/1.mp4" type="video/mp4"></video>
                             </div>
                         </div>
                         <div class="swiper-slide w-[75vw] max-w-[280px]">
                             <div class="bg-black rounded-xl overflow-hidden shadow-md">
-                                <video controls class="w-full h-40 object-cover"><source src="image/video/2.mp4" type="video/mp4"></video>
+                                <video controls poster="image/seller-img.jpg" class="w-full h-44 object-cover"><source src="image/video/2.mp4" type="video/mp4"></video>
                             </div>
                         </div>
                         <div class="swiper-slide w-[75vw] max-w-[280px]">
                             <div class="bg-black rounded-xl overflow-hidden shadow-md">
-                                <video controls class="w-full h-40 object-cover"><source src="https://nehabookpublication.com/image/video/video-3.mp4" type="video/mp4"></video>
+                                <video controls poster="photo-1455390582262-044cdead277a-auto-format-fit-crop-w-800-q-80.jpg" class="w-full h-44 object-cover"><source src="https://nehabookpublication.com/image/video/video-3.mp4" type="video/mp4"></video>
                             </div>
                         </div>
                     </div>
@@ -287,11 +289,11 @@
 
         <!-- Book Slider & Reviews Grid -->
         <section class="py-10 bg-white border-t border-slate-200 reveal w-full">
-            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center w-full">
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center w-full">
                 
                 <!-- 3D Book Swiper -->
                 <div class="w-full overflow-hidden">
-                    <h2 class="text-lg font-extrabold text-slate-900 text-center mb-4">Our Published Portfolio</h2>
+                    <h2 class="text-lg font-extrabold text-slate-900 text-center mb-6">Our Published Portfolio</h2>
                     <div class="swiper bookSlider w-full py-4">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="image/books/1.png" onerror="this.src='https://via.placeholder.com/200x300/1e3a8a/fff?text=Book'"></div>
@@ -303,9 +305,9 @@
                 </div>
 
                 <!-- Reviews Marquee -->
-                <div class="w-full h-64 overflow-hidden bg-slate-50 border border-slate-200 rounded-2xl p-4 relative shadow-inner">
-                    <div class="absolute top-0 left-0 w-full h-10 bg-gradient-to-b from-slate-50 to-transparent z-10"></div>
-                    <div class="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-slate-50 to-transparent z-10"></div>
+                <div class="w-full h-[280px] overflow-hidden bg-slate-50 border border-slate-200 rounded-2xl p-4 relative shadow-inner">
+                    <div class="absolute top-0 left-0 w-full h-12 bg-gradient-to-b from-slate-50 to-transparent z-10"></div>
+                    <div class="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-slate-50 to-transparent z-10"></div>
                     <div id="reviewBox" class="space-y-3 animate-scroll"></div>
                 </div>
             </div>
@@ -365,24 +367,24 @@
             });
         });
 
-        // 3. Robust Swiper Initializations (Fixes all layout bugs)
+        // 3. Robust Swiper Initializations
         document.addEventListener('DOMContentLoaded', () => {
             // Project Slider
             new Swiper(".projectSlider", {
                 slidesPerView: "auto",
                 spaceBetween: 16,
                 centeredSlides: true,
-                loop: false, // Better UX for pricing tables
+                loop: false, 
                 pagination: { el: ".swiper-pagination", clickable: true },
-                autoplay: { delay: 3500, disableOnInteraction: true },
+                autoplay: { delay: 4000, disableOnInteraction: true },
                 initialSlide: 1 // Start on the popular middle tier
             });
 
             // Media & Cert Sliders
-            new Swiper(".mediaSlider", { slidesPerView: "auto", spaceBetween: 12, freeMode: true });
+            new Swiper(".mediaSlider", { slidesPerView: "auto", spaceBetween: 16, freeMode: true });
             new Swiper(".certSlider", { slidesPerView: "auto", spaceBetween: 12, freeMode: true });
 
-            // 3D Books (Restored Effect)
+            // 3D Books 
             new Swiper(".bookSlider", {
                 effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto", loop: true,
                 coverflowEffect: { rotate: 20, stretch: 0, depth: 150, modifier: 1, slideShadows: true },
@@ -392,7 +394,7 @@
             window.dispatchEvent(new Event('scroll'));
         });
 
-        // 4. Live Social Proof (Drop down notification)
+        // 4. Live Social Proof
         const toastNames = ["Amit S.", "Neha V.", "Pooja K.", "Vikram", "Suresh M.", "Anjali", "Rohan", "Kavita D."];
         const toastActions = ["joined the channel", "selected Premium Plan", "got ₹15,000 advance", "started writing"];
         
@@ -427,7 +429,7 @@
         let html = '';
         for(let i=0; i<12; i++) {
             let r = revs[i % revs.length];
-            html += `<div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm flex gap-3"><div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-xs font-bold text-primary shrink-0 border border-blue-100">${r.n[0]}</div><div><p class="text-xs font-bold text-slate-800 leading-tight mb-0.5">${r.n}</p><p class="text-[11px] text-slate-500 leading-snug">${r.t}</p></div></div>`;
+            html += `<div class="bg-white p-4 rounded-xl border border-slate-100 shadow-sm flex gap-3"><div class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-sm font-bold text-primary shrink-0 border border-blue-100">${r.n[0]}</div><div><p class="text-sm font-bold text-slate-800 leading-tight mb-1">${r.n}</p><p class="text-xs text-slate-500 leading-snug">${r.t}</p></div></div>`;
         }
         revContainer.innerHTML = html + html; 
     </script>
