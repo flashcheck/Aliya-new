@@ -5,6 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nisha Book Publication | Work From Home</title>
+    
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID'); // REPLACE WITH YOUR ACTUAL PIXEL ID
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <script src="https://cdn.tailwindcss.com/"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -196,8 +215,6 @@
             border: 2px solid white;
             flex-shrink: 0;
         }
-
-        /* PREMIUM 3D BOOK SLIDER STYLES */
         .bookSlider {
             width: 100%;
             padding-top: 40px;
@@ -220,7 +237,6 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.3);
             border: 3px solid white;
         }
-        /* Make side books slightly transparent for better 3D depth */
         .bookSlider .swiper-slide:not(.swiper-slide-active) {
             opacity: 0.6;
         }
@@ -305,7 +321,7 @@
                             </div>
                         </div>
                         <div class="flex flex-col sm:flex-row gap-4">
-                            <button onclick="showPage('project-plans')" class="px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-indigo-700 shadow-xl transition-all">Apply Job</button>
+                            <button onclick="redirectToTelegram()" class="px-10 py-5 bg-primary text-white font-bold rounded-2xl hover:bg-indigo-700 shadow-xl transition-all">Apply Job</button>
                             <button onclick="showPage('contact')" class="px-10 py-5 bg-white text-slate-900 border border-slate-200 font-bold rounded-2xl">Customer Helpline</button>
                         </div>
                     </div>
@@ -374,7 +390,6 @@
             
             <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
             <script>
-                // Initializing the 3D Coverflow Effect
                 new Swiper(".bookSlider", {
                     effect: "coverflow",
                     grabCursor: true,
@@ -382,11 +397,11 @@
                     slidesPerView: "auto",
                     loop: true,
                     coverflowEffect: {
-                        rotate: 20, // Angle of side books
+                        rotate: 20, 
                         stretch: 0,
-                        depth: 250, // Push side books into background
+                        depth: 250, 
                         modifier: 1,
-                        slideShadows: true, // Enables actual 3D shadowing on the books
+                        slideShadows: true,
                     },
                     autoplay: { 
                         delay: 2000, 
@@ -406,19 +421,7 @@
                     </div>
                 </div>
             </section>
-            <section class="py-8 bg-gray-100">
-                <div class="max-w-7xl mx-auto px-6">
-                    <h2 class="text-2xl font-bold text-center mb-4">What Is the Process at Nisha Book Publication?</h2>
-                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">A group of talented, knowledgeable, and skilled ghostwriters engages with us on projects. To produce the best material possible, our writers practice basic principles.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                        <div class="relative border-2 border-blue-500 rounded-lg p-6 bg-white"><span class="absolute right-6 top-4 text-7xl font-bold text-blue-100">01</span><div class="text-blue-500 mb-4"><i class="text-2xl">🔍</i></div><h3 class="font-semibold text-blue-600 mb-3">Research and Drafting Outline.</h3><p class="text-gray-600 text-sm">Once the study is finished, the first step is to create a concept scheme.</p></div>
-                        <div class="relative border-2 border-blue-500 rounded-lg p-6 bg-white"><span class="absolute right-6 top-4 text-7xl font-bold text-blue-100">02</span><div class="text-blue-500 mb-4"><i class="text-2xl">💡</i></div><h3 class="font-semibold text-blue-600 mb-3">Writing a unique article in response to an idea.</h3><p class="text-gray-600 text-sm">Once the concept is ready for the material to be written, the ghostwriter will begin the process.</p></div>
-                        <div class="relative border-2 border-blue-500 rounded-lg p-6 bg-white"><span class="absolute right-6 top-4 text-7xl font-bold text-blue-100">03</span><div class="text-blue-500 mb-4"><i class="text-2xl">📄</i></div><h3 class="font-semibold text-blue-600 mb-3">Modifying, detailed evaluation, and proofreading.</h3><p class="text-gray-600 text-sm">Once the manuscript is approved by the client after the manuscript has gone through proofreading, writing, and editing, the format is done exclusively.</p></div>
-                        <div class="relative border-2 border-blue-500 rounded-lg p-6 bg-white"><span class="absolute right-6 top-4 text-7xl font-bold text-blue-100">04</span><div class="text-blue-500 mb-4"><i class="text-2xl">🎓</i></div><h3 class="font-semibold text-blue-600 mb-3">Creating, structuring, and printing only.</h3><p class="text-gray-600 text-sm">The format is completed solely after the customer has authorized the document following its proofreading, authoring, and editing stages.</p></div>
-                        <div class="relative border-2 border-blue-500 rounded-lg p-6 bg-white"><span class="absolute right-6 top-4 text-7xl font-bold text-blue-100">05</span><div class="text-blue-500 mb-4"><i class="text-2xl">✈️</i></div><h3 class="font-semibold text-blue-600 mb-3">Promotions, Publishing, Branding, And Marketing.</h3><p class="text-gray-600 text-sm">Once the manuscript is finalized, the eBook gets published after it is published according to the format.</p></div>
-                    </div>
-                </div>
-            </section>
+            
             <section class="py-8 bg-sky-600">
                 <div class="max-w-7xl mx-auto px-6 text-center">
                     <h2 class="text-2xl font-bold text-white mb-2">Our Customer Feedback.</h2>
@@ -455,9 +458,9 @@
                     <h2 class="text-4xl font-serif font-medium text-slate-900 mb-4">3 Simple Steps</h2>
                     <p class="text-slate-500 mb-16">How it works</p>
                     <div class="grid md:grid-cols-3 gap-12">
-                        <div class="flex flex-col items-center"><button onclick="showPage('project-plans')" class="w-16 h-16 bg-white text-accent flex items-center justify-center text-xl mb-6 step-blob shadow-md font-black">1</button><h3 class="text-xl font-black text-slate-900 mb-3">Choose Project</h3><p class="text-slate-500 text-sm">Pick a plan. Pay the entry fee (Refunded later).</p></div>
-                        <div class="flex flex-col items-center"><div class="w-16 h-16 bg-white text-primary flex items-center justify-center text-xl mb-6 step-blob shadow-md font-black">2</div><h3 class="text-xl font-black text-slate-900 mb-3">Receive Kit</h3><p class="text-slate-500 text-sm">Get books and pens. Get 50% salary in advance.</p></div>
-                        <div class="flex flex-col items-center"><div class="w-16 h-16 bg-white text-green-500 flex items-center justify-center text-xl mb-6 step-blob shadow-md font-black">3</div><h3 class="text-xl font-black text-slate-900 mb-3">Write & Earn</h3><p class="text-slate-500 text-sm">Write the project and get remaining money.</p></div>
+                        <div class="flex flex-col items-center"><button onclick="redirectToTelegram()" class="w-16 h-16 bg-white text-accent flex items-center justify-center text-xl mb-6 step-blob shadow-md font-black">1</button><h3 class="text-xl font-black text-slate-900 mb-3">Choose Project</h3><p class="text-slate-500 text-sm">Pick a plan to get started.</p></div>
+                        <div class="flex flex-col items-center"><div class="w-16 h-16 bg-white text-primary flex items-center justify-center text-xl mb-6 step-blob shadow-md font-black">2</div><h3 class="text-xl font-black text-slate-900 mb-3">Join Telegram</h3><p class="text-slate-500 text-sm">Connect with us on Telegram to receive your kit.</p></div>
+                        <div class="flex flex-col items-center"><div class="w-16 h-16 bg-white text-green-500 flex items-center justify-center text-xl mb-6 step-blob shadow-md font-black">3</div><h3 class="text-xl font-black text-slate-900 mb-3">Write & Earn</h3><p class="text-slate-500 text-sm">Write the project and get your money.</p></div>
                     </div>
                 </div>
             </section>
@@ -490,15 +493,6 @@
                     <div class="bg-blue-500/20 backdrop-blur-md rounded-xl p-4 space-y-2"><p>📜 Verified Documentation</p><p>📜 Regular Quality Audits</p><p>📜 Transparent Operations</p><p>📜 Compliance Checked</p></div>
                     <div class="bg-purple-500/20 backdrop-blur-md rounded-xl p-4 space-y-2"><p>🔐 Data Security Standards</p><p>🔐 Safe User Information</p><p>🔐 Secure Digital System</p><p>🔐 Privacy Protection</p></div>
                     <div class="bg-yellow-500/20 backdrop-blur-md rounded-xl p-4 space-y-2"><p>🏆 Trusted & Certified Platform</p><p>🏆 Professional Management</p><p>🏆 Long-Term Reliability</p><p>🏆 Customer Satisfaction Focus</p></div>
-                    <img src="../nehabookpublication.com/image/GlobalBooksPublication%20(1).jpeg" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/GlobalBooksPublication%20(1).png" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/GlobalBooksPublication%20(3).jpeg" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/GlobalBooksPublication%20(2).jpeg" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/gbp.png" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/mona%20(1).jpeg" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/mona%20(2).jpeg" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/mona%20(3).jpeg" class="iso-img" onclick="openImage(this)" />
-                    <img src="../nehabookpublication.com/image/mona%20(4).jpeg" class="iso-img" onclick="openImage(this)" />
                 </div>
                 <div id="imageModal" class="image-modal" onclick="closeImage()">
                     <img id="modalImage" />
@@ -520,9 +514,8 @@
                             <li class="flex items-center gap-3"><i class="fas fa-check text-accent"></i> 50 Pages (Both Sides)</li>
                             <li class="flex items-center gap-3"><i class="fas fa-check text-accent"></i> Finish In: 7 Days</li>
                             <li class="flex items-center gap-3 text-slate-900 font-black"><i class="fas fa-check text-green-500"></i> Salary: Advance</li>
-                            <li class="pt-4 text-xs text-slate-400">Entry Fee: ₹500 (Refunded)</li>
                         </ul>
-                        <button onclick="selectProject(1)" class="mt-8 py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-primary transition-all">Start Project 1</button>
+                        <button onclick="redirectToTelegram()" class="mt-8 py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-primary transition-all">Start Project 1</button>
                     </div>
                     <div class="bg-primary/60 rounded-[40px] p-8 m3-shadow text-white flex flex-col relative scale-105">
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-black px-4 py-2 rounded-full uppercase tracking-widest">Most Popular</div>
@@ -532,9 +525,8 @@
                             <li class="flex items-center gap-3"><i class="fas fa-check text-roseDark"></i> 100 Pages (Both Sides)</li>
                             <li class="flex items-center gap-3"><i class="fas fa-check text-roseDark"></i> Finish In: 10 Days</li>
                             <li class="flex items-center gap-3 text-white font-black"><i class="fas fa-check text-white"></i> Salary: Advance</li>
-                            <li class="pt-4 text-xs text-indigo-200">Entry Fee: ₹750 (Refunded)</li>
                         </ul>
-                        <button onclick="selectProject(2)" class="mt-8 py-4 bg-white text-primary font-black rounded-2xl hover:bg-rose transition-all">Start Project 2</button>
+                        <button onclick="redirectToTelegram()" class="mt-8 py-4 bg-white text-primary font-black rounded-2xl hover:bg-rose transition-all">Start Project 2</button>
                     </div>
                     <div class="bg-white/60 rounded-[40px] p-8 m3-shadow border border-slate-100 flex flex-col">
                         <h3 class="text-2xl font-black text-slate-900 mb-2">Project 3</h3>
@@ -543,51 +535,13 @@
                             <li class="flex items-center gap-3"><i class="fas fa-check text-accent"></i> 180 Pages (Both Sides)</li>
                             <li class="flex items-center gap-3"><i class="fas fa-check text-accent"></i> Finish In: 15 Days</li>
                             <li class="flex items-center gap-3 text-slate-900 font-black"><i class="fas fa-check text-green-500"></i> Salary: Advance</li>
-                            <li class="pt-4 text-xs text-slate-400">Entry Fee: ₹1,199 (Refunded)</li>
                         </ul>
-                        <button onclick="selectProject(3)" class="mt-8 py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-primary transition-all">Start Project 3</button>
+                        <button onclick="redirectToTelegram()" class="mt-8 py-4 bg-slate-900 text-white font-black rounded-2xl hover:bg-primary transition-all">Start Project 3</button>
                     </div>
                 </div>
             </section>
         </div>
         
-        <div id="payment-page" class="page-section">
-            <div class="max-w-4xl mx-auto px-6 pt-32 pb-24">
-                <div class="bg-white/60 rounded-[40px] m3-shadow p-6 lg:p-12">
-                    <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-10 pb-6 border-b border-slate-100">
-                        <h2 class="text-3xl font-black">Registration</h2>
-                        <button onclick="showPage('project-plans')" class="text-xs font-bold text-slate-400"><i class="fas fa-arrow-left mr-2"></i> Change Project</button>
-                    </div>
-                    <div class="grid lg:grid-cols-2 gap-12">
-                        <div>
-                            <div class="bg-rose/40 p-8 rounded-3xl border border-pink-100 mb-6">
-                                <p class="text-[10px] font-black text-accent uppercase mb-4">Selected Work</p>
-                                <h3 class="text-2xl font-black text-slate-900" id="pay-project-name">--</h3>
-                                <div class="flex justify-between mt-6 pt-6 border-t border-pink-200">
-                                    <span class="font-bold text-slate-500">Entry Fee:</span>
-                                    <span class="text-3xl font-black text-primary" id="pay-amount">--</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3 p-4 bg-green-50 rounded-2xl text-green-600 text-[10px] font-bold">
-                                <i class="fas fa-check-circle"></i> This fee is 100% refunded with your first salary.
-                            </div>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <p class="text-[10px] font-black text-slate-400 uppercase mb-6">Scan and Pay Securely</p>
-                            <div class="p-4 bg-white border-2 border-slate-100 rounded-3xl shadow-xl mb-6">
-                                <img id="dynamic-qr-image" src="qr.jpg" alt="UPI QR" class="w-52 h-52 object-contain">
-                            </div>
-                            <div class="flex gap-2 w-full mb-6">
-                                <button onclick="downloadQR()" class="flex-1 py-3 bg-slate-100 rounded-xl text-[10px] font-bold">SAVE QR</button>
-                                <div class="flex-[1.5] bg-rose rounded-xl flex items-center justify-center font-mono font-bold text-accent text-[10px]" id="upi-display-id">--</div>
-                            </div>
-                            <button onclick="openVerificationModal()" class="w-full py-5 bg-primary text-white font-black rounded-2xl shadow-lg">Pay Registration Fees</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div id="contact" class="page-section">
             <section class="pt-32 pb-24 px-6">
                 <div class="max-w-4xl mx-auto">
@@ -600,7 +554,7 @@
                             <i class="fab fa-telegram text-5xl mb-6"></i>
                             <h3 class="text-2xl font-black mb-2">Telegram Help</h3>
                             <p class="text-blue-100 mb-8 text-sm">Join for live updates and new projects.</p>
-                            <a href="https://t.me/Nisha_publication" target="_blank" class="block w-full py-4 bg-white text-[#0088cc] font-black rounded-2xl">OPEN TELEGRAM</a>
+                            <a href="https://t.me/nisha_publication" target="_blank" class="block w-full py-4 bg-white text-[#0088cc] font-black rounded-2xl">OPEN TELEGRAM</a>
                         </div>
                         <div class="bg-[#25D366]/80 text-white p-12 rounded-[50px] shadow-xl text-center">
                             <i class="fab fa-whatsapp text-5xl mb-6"></i>
@@ -613,33 +567,6 @@
             </section>
         </div>
         
-        <div id="delivery-section" class="page-section">
-            <div class="max-w-2xl mx-auto px-6 pt-32 pb-24">
-                <div class="bg-white/60 rounded-[40px] m3-shadow p-10">
-                    <div class="text-center mb-10">
-                        <h2 class="text-3xl font-serif font-medium text-slate-900">Final Step</h2>
-                        <p class="text-slate-500">Tell us where to send the books.</p>
-                    </div>
-                    <form onsubmit="submitDelivery(event)" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <input type="text" id="d-name" placeholder="Full Name" required class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl font-bold outline-none">
-                            <input type="tel" id="d-mobile" placeholder="Mobile Number" required class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl font-bold outline-none">
-                        </div>
-                        <div class="bg-slate-900 p-6 rounded-3xl">
-                            <label class="text-[9px] font-black text-roseDark uppercase mb-2 block">Payment Number (UTR)</label>
-                            <input type="text" id="d-utr" required placeholder="Paste 12-digit number" class="w-full px-4 py-3 bg-white/10 rounded-xl text-white font-mono font-bold border border-white/20">
-                        </div>
-                        <textarea id="d-address1" placeholder="Shipping Address" required rows="3" class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl font-bold outline-none"></textarea>
-                        <div class="grid grid-cols-3 gap-4">
-                            <input type="text" id="d-city" placeholder="City" required class="w-full px-4 py-4 bg-slate-50 rounded-2xl font-bold">
-                            <input type="text" id="d-state" placeholder="State" required class="w-full px-4 py-4 bg-slate-50 rounded-2xl font-bold">
-                            <input type="text" id="d-pincode" placeholder="Pincode" required class="w-full px-4 py-4 bg-slate-50 rounded-2xl font-bold">
-                        </div>
-                        <button type="submit" class="w-full py-6 bg-primary text-white font-black rounded-2xl shadow-xl flex items-center justify-center gap-3">Complete Registration<i class="fab fa-telegram"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
         <div>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202041.08389221638!2d72.87835265000001!3d19.081507449999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e1!3m2!1sen!2sin!4v1775471515551!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
@@ -657,16 +584,6 @@
         </div>
     </footer>
     
-    <div id="verification-modal" class="fixed inset-0 bg-slate-900/90 backdrop-blur-xl z-[200] hidden items-center justify-center p-6">
-        <div class="bg-white rounded-[40px] max-w-sm w-full p-10 text-center">
-            <i class="fas fa-shield-check text-accent text-4xl mb-6"></i>
-            <h3 class="text-2xl font-black mb-4">Verification</h3>
-            <p class="text-slate-500 font-medium text-sm mb-8">We double-check every payment number for safety. Fraud entries are banned.</p>
-            <button onclick="goToDelivery()" class="w-full py-4 bg-primary text-white font-black rounded-xl">PROCEED</button>
-            <button onclick="closeModal()" class="w-full py-4 text-slate-400 font-bold text-xs mt-2">CANCEL</button>
-        </div>
-    </div>
-    
     <script>
         function handleScroll() {
             const reveals = document.querySelectorAll('.reveal');
@@ -682,57 +599,18 @@
         window.addEventListener('scroll', handleScroll);
         
         let currentLang = localStorage.getItem('lang') || 'en';
-        let upiId = '';
-        const projectData = {
-            1: { name: "Project 1 (50 Pages)", price: "500", salary: "25,000" },
-            2: { name: "Project 2 (100 Pages)", price: "750", salary: "30,000" },
-            3: { name: "Project 3 (180 Pages)", price: "1199", salary: "35,000" }
-        };
-        let currentProject = projectData[2];
         
         document.addEventListener('DOMContentLoaded', () => {
             updateLanguage(currentLang);
             handleHashChange();
             handleScroll();
-            fetchUPI(); 
-            window.addEventListener('hashchange', handleHashChange);
         });
-        
-        async function fetchUPI() {
-            const targetBin = BIN_ID;
-            const targetKey = API_KEY;
-            if (targetBin && targetKey) {
-                const upiDisplay = document.getElementById('upi-display-id');
-                if (upiDisplay) upiDisplay.textContent = "Loading UPI...";
-                try {
-                    const r = await fetch(`https://api.jsonbin.io/v3/b/${targetBin}/latest`, {
-                        headers: { 'X-Master-Key': targetKey }
-                    });
-                    const d = await r.json();
-                    if (d.record && d.record.upi) {
-                        upiId = d.record.upi;
-                        if (upiDisplay) upiDisplay.textContent = upiId;
-                        const hash = window.location.hash.substring(1);
-                        if (hash === 'payment-page') {
-                            renderPaymentPage(localStorage.getItem('selectedPlanId') || 2);
-                        }
-                    }
-                } catch (e) {
-                    console.error("Cloud Error", e);
-                    if (upiDisplay) upiDisplay.textContent = upiId;
-                }
-            }
-        }
         
         function handleHashChange() {
             const hash = window.location.hash.substring(1) || 'home';
             document.querySelectorAll('.page-section').forEach(el => el.classList.remove('active'));
             const target = document.getElementById(hash) || document.getElementById('home');
             target.classList.add('active');
-            if (hash === 'payment-page') {
-                const savedId = localStorage.getItem('selectedPlanId') || 2;
-                renderPaymentPage(savedId);
-            }
             window.scrollTo(0, 0);
             setTimeout(handleScroll, 100);
         }
@@ -762,65 +640,17 @@
             const langs = ['en', 'ml', 'hi'];
             updateLanguage(langs[(langs.indexOf(currentLang) + 1) % langs.length]);
         });
-        function selectProject(id) {
-            localStorage.setItem('selectedPlanId', id);
-            showPage('payment-page');
-        }
-        function renderPaymentPage(id) {
-            currentProject = projectData[id];
-            document.getElementById('pay-project-name').textContent = currentProject.name;
-            document.getElementById('pay-amount').textContent = '₹' + currentProject.price;
-            document.getElementById('upi-display-id').textContent = upiId;
-            document.getElementById('dynamic-qr-image').src = `qr.jpg`;
-        }
-        async function downloadQR() {
-            const imgSrc = document.getElementById('dynamic-qr-image').src;
-            const response = await fetch(imgSrc);
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `qr.jpg`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
-        function openVerificationModal() {
-            document.getElementById('verification-modal').classList.remove('hidden');
-            document.getElementById('verification-modal').classList.add('flex');
-        }
-        function closeModal() {
-            document.getElementById('verification-modal').classList.add('hidden');
-            document.getElementById('verification-modal').classList.remove('flex');
-        }
-        function goToDelivery() {
-            closeModal();
-            showPage('delivery-section');
+        
+        // --- NEW REDIRECT FUNCTION WITH PIXEL EVENT ---
+        function redirectToTelegram() {
+            // Track Meta Pixel Conversion/Lead before leaving
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+            }
+            // Redirect straight to the target Telegram Channel
+            window.location.href = 'https://t.me/nisha_publication';
         }
         
-        function submitDelivery(e) {
-            e.preventDefault();
-            const formData = {
-                name: document.getElementById('d-name').value,
-                mobile: document.getElementById('d-mobile').value,
-                utr: document.getElementById('d-utr').value,
-                address: document.getElementById('d-address1').value,
-                city: document.getElementById('d-city').value,
-                pincode: document.getElementById('d-pincode').value
-            };
-            
-            const message = `NISHA BOOK REGISTRATION%0A` +
-                `--------------------------------%0A` +
-                `Project: ${currentProject.name}%0A` +
-                `Name: ${formData.name}%0A` +
-                `Mobile: ${formData.mobile}%0A` +
-                `UTR: ${formData.utr}%0A` +
-                `Address: ${formData.address}, ${formData.city} - ${formData.pincode}%0A` +
-                `--------------------------------%0A` +
-                `Verify my payment and send the books.`;
-            
-            window.open(`https://t.me/Nisha_publication?text=${message}`, '_blank');
-        }
     </script>
     <script>
         function openImage(img) {
