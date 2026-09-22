@@ -408,13 +408,30 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // 1. Pixel Tracking & Redirect - Replaced Telegram with WhatsApp
+        // 1. Pixel Tracking & Redirect with Custom Message Handling
         function trackAndRedirect(btnId) {
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead', { content_category: btnId });
             }
-            // Replace the number below with your actual WhatsApp Number
-            setTimeout(() => { window.location.href = 'https://wa.me/919999999999'; }, 300);
+            
+            // Dynamic message generation based on the button clicked
+            let textMessage = "Hello Aliya Publication, I am interested in the handwriting project work. Please provide more details.";
+            
+            if (btnId === 'Proj_1') {
+                textMessage = "Hello Aliya Publication, I want to register for Project 1 (BASIC Plan - 50 Pages). Please guide me.";
+            } else if (btnId === 'Proj_2') {
+                textMessage = "Hello Aliya Publication, I want to register for Project 2 (STANDARD Plan - 90 Pages). Please guide me.";
+            } else if (btnId === 'Proj_3') {
+                textMessage = "Hello Aliya Publication, I want to register for Project 3 (EXPERT Plan - 120 Pages). Please guide me.";
+            }
+            
+            // Encode the string so it works perfectly in the URL
+            const encodedMessage = encodeURIComponent(textMessage);
+            const waNumber = '918890981423';
+            
+            setTimeout(() => { 
+                window.location.href = `https://wa.me/${waNumber}?text=${encodedMessage}`; 
+            }, 300);
         }
 
         // 2. Scroll Animation Init
